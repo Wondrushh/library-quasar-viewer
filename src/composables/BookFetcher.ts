@@ -69,7 +69,7 @@ function parseBooksFromResponse(
   const books: Book[] = [];
   console.log(authorDict);
   response.data.results.forEach((book: typeof response.data) => {
-    console.log(book);
+    console.log(books);
     books.push({
       isbn: book.isbn,
       title: book.title,
