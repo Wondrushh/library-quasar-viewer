@@ -1,6 +1,6 @@
 <template>
-    <div ref="bookRef" class="book cursor-pointer">
-        <p class="text-subtitle2 book__name">{{ props.bookName }}</p>
+    <div ref="bookRef" class="book cursor-pointer q-ma-md">
+        <p class="text-subtitle1 book__name">{{ props.bookName }}</p>
         <div class="book__spacer"></div>
         <p class="book__author">{{ props.bookAuthor }}</p>
         <p class="textbook__pub_date">{{ props.pubDate }}</p>
@@ -36,6 +36,7 @@ onMounted(() => {
     display:flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     padding: 1rem;
     height: 12rem;
     width: 9.5rem;
