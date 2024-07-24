@@ -2,8 +2,7 @@
   <q-page class="row justify-center q-px-lg">
     <div class="row book-container justify-start">
       <div v-for="book in books" :key="book.isbn" class="row justify-center col-12 col-sm-4 col-md-3 col-lg-2">
-        <book-view :book-name="book.title" :book-author="`${book.authors[0].firstName} ${book.authors[0].lastName}`"
-          :pub-date="book.pubDate"></book-view>
+        <book-view :book="book"></book-view>
       </div>
     </div>
   </q-page>

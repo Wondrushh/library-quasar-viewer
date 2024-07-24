@@ -1,25 +1,30 @@
 <template>
-    <div ref="bookRef" class="book cursor-pointer q-ma-md">
-        <p class="text-subtitle1 book__name">{{ props.bookName }}</p>
+    <div ref="bookRef" class="book cursor-pointer q-ma-md" @click="displayBookData">
+        <p class="text-subtitle1 book__name">{{ book.title }}</p>
         <div class="book__spacer"></div>
-        <p class="book__author">{{ props.bookAuthor }}</p>
-        <p class="textbook__pub_date">{{ props.pubDate }}</p>
+        <p v-for="(name, i) in authorNames" :key="i" class="book__author">{{ name }}</p>
+        <p class="textbook__pub_date">{{ book.pubDate }}</p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { Author, Book } from 'src/composables/BookFetcher';
+import BookDataDlg from './BookDataDlg.vue';
+import { useQuasar } from 'quasar';
+
 defineOptions({
     name: 'BookView'
 });
 
-const props = defineProps({
-    bookName: String,
-    bookAuthor: String,
-    pubDate: String,
-})
+const $q = useQuasar();
+
+
+const props = defineProps<{ book: Book }>();
 
 const bookRef = ref<HTMLElement | null>(null);
+
+const authorNames: string[] = props.book.authors.map((author: Author) => `${author.firstName} ${author.lastName}`);
 
 onMounted(() => {
     if (bookRef.value !== null) {
@@ -28,6 +33,15 @@ onMounted(() => {
         bookRef.value.style.backgroundColor = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 0.4)`
     }
 });
+
+function displayBookData() {
+    $q.dialog({
+        component: BookDataDlg,
+        componentProps: {
+            book: props.book
+        }
+    })
+}
 
 </script>
 
