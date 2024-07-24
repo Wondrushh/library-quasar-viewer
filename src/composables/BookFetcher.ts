@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { api } from 'src/boot/axios';
 import { AxiosError, AxiosResponse } from 'axios';
 
-interface Book {
+export interface Book {
   title: string;
   isbn: string;
   authors: Array<Author>;
@@ -11,7 +11,7 @@ interface Book {
   url: string;
 }
 
-interface Author {
+export interface Author {
   firstName: string;
   lastName: string;
   birthDate: string;
