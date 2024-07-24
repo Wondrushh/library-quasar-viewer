@@ -1,41 +1,33 @@
 # Sciencetrack App (quasar-sciencetrack)
 
-A Quasar Project
+## Overview
+A simple view application for the [Library management system](https://github.com/Wondrushh/sciencetrack-task/) web app. This application enables only viewing the books in the system.
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
+## Getting Started
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v14 or later)
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Wondrushh/library-quasar-viewer.git
+   cd library-quasar-viewer
+   ```
+
+2. Install dependencies:
+   ```bash
+   yarn install
+   # or
+   npm install
+   ```
+
+### Development
+To start the development server:
 ```bash
 quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
 # or
-npm run lint
+npx quasar dev
 ```
+This command will run the application in development mode with hot-reload enabled.
 
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
